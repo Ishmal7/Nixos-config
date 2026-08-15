@@ -1,5 +1,6 @@
 First NixOS config
 
+```text
 ├── configuration.nix
 ├── desktop
 │   ├── cosmic-de
@@ -30,3 +31,4 @@ First NixOS config
     ├── fonts.nix
     ├── nvidia.nix
     └── tailscale.nix
+```
