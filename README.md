@@ -1,4 +1,4 @@
-First NixOS config 
+First NixOS config
 
 ├── configuration.nix
 ├── desktop
