@@ -1,8 +1,9 @@
 First NixOS config
 
 ```text
+.
 ├── configuration.nix
-├── desktop
+├── environment
 │   ├── cosmic-de
 │   │   └── cosmic.nix
 │   └── hyprland-de
@@ -17,6 +18,7 @@ First NixOS config
 │   │   └── color.nix
 │   ├── fastfetch
 │   │   └── default.nix
+│   ├── git.nix
 │   ├── home.nix
 │   ├── neovim
 │   │   └── default.nix
@@ -25,10 +27,25 @@ First NixOS config
 │       └── themes
 │           ├── Monokai.rasi
 │           └── paper-float.rasi
-└── modules
-    ├── audio.nix
-    ├── displaylink-kde.nix
-    ├── fonts.nix
-    ├── nvidia.nix
-    └── tailscale.nix
+├── hosts
+│   └── vivobook
+│       ├── default.nix
+│       └── hardware-configuration.nix
+├── modules
+│   ├── audio.nix
+│   ├── boot.nix
+│   ├── displaylink-kde.nix
+│   ├── displaylink.nix
+│   ├── fonts.nix
+│   ├── locale.nix
+│   ├── nvidia.nix
+│   └── tailscale.nix
+├── profiles
+│   └── graphical
+│       ├── cosmic-de
+│       │   └── cosmic.nix
+│       └── hyprland-de
+│           └── hyprland.nix
+├── README.md
+└── users
 ```
