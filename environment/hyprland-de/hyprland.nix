@@ -19,6 +19,11 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  environment.systemPackages = with pkgs; [
+    noctalia-shell
+  ];
+
+
   #hardware = {
   #  # graphics
   #  graphics.enable = true;
