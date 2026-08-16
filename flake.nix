@@ -16,9 +16,6 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./profiles/graphical/cosmic-de/cosmic.nix
-        modules = [
-          ./configuration.nix
           ./environment/cosmic-de/cosmic.nix
           home-manager.nixosModules.home-manager
           {
@@ -32,9 +29,6 @@
 
       hyprland-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          ./profiles/graphical/hyprland-de/hyprland.nix
         modules = [
           ./configuration.nix
           ./environment/hyprland-de/hyprland.nix
