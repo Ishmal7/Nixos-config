@@ -8,6 +8,10 @@
     xwayland.enable = true;
   };
 
+  # Background metrics daemons requiered by Noctalia
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
   environment.sessionVariables = {
     # If pointer goes invisible
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -15,10 +19,10 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  hardware = {
-    # graphics
-    graphics.enable = true;
-    # Needed by most Wayland compositors
-    nvidia.modesetting.enable = true;
-  };
+  #hardware = {
+  #  # graphics
+  #  graphics.enable = true;
+  #  # Needed by most Wayland compositors
+  #  nvidia.modesetting.enable = true;
+  #};
 }

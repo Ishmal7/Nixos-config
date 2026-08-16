@@ -9,7 +9,12 @@
     ../../modules/locale.nix
     ../../modules/nvidia.nix
     ../../modules/tailscale.nix
-    ../../modules/agenix.nix
+    ../../modules/networking.nix
   ];
+
+  #networking.hostName = "vivobook";
+  #system.stateVersion = "26.05";  
+
 }
+
 

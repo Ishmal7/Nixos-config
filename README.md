@@ -6,8 +6,9 @@ First NixOS config
 ├── environment
 │   ├── cosmic-de
 │   │   └── cosmic.nix
-│   └── hyprland-de
-│       └── hyprland.nix
+│   ├── hyprland-de
+│   │   └── hyprland.nix
+│   └── sddm.nix
 ├── flake.lock
 ├── flake.nix
 ├── hardware-configuration.nix
@@ -16,17 +17,21 @@ First NixOS config
 │   │   └── default.nix
 │   ├── color
 │   │   └── color.nix
+│   ├── cosmic-home.nix
 │   ├── fastfetch
 │   │   └── default.nix
 │   ├── git.nix
 │   ├── home.nix
+│   ├── hyprland-home.nix
 │   ├── neovim
 │   │   └── default.nix
-│   └── rofi
-│       ├── default.nix
-│       └── themes
-│           ├── Monokai.rasi
-│           └── paper-float.rasi
+│   ├── rofi
+│   │   ├── default.nix
+│   │   └── themes
+│   │       ├── Monokai.rasi
+│   │       └── paper-float.rasi
+│   └── users-home
+│       └── james-home.nix
 ├── hosts
 │   └── vivobook
 │       ├── default.nix
@@ -38,14 +43,10 @@ First NixOS config
 │   ├── displaylink.nix
 │   ├── fonts.nix
 │   ├── locale.nix
+│   ├── networking.nix
 │   ├── nvidia.nix
 │   └── tailscale.nix
-├── profiles
-│   └── graphical
-│       ├── cosmic-de
-│       │   └── cosmic.nix
-│       └── hyprland-de
-│           └── hyprland.nix
 ├── README.md
 └── users
+    └── james.nix
 ```
