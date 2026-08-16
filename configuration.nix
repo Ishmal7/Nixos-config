@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./modules/fonts.nix
       ./modules/nvidia.nix
+<<<<<<< HEAD
       ./modules/displaylink-kde.nix
       ./modules/tailscale.nix
       ./modules/audio.nix
@@ -19,6 +20,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+=======
+      ./modules/displaylink.nix
+      ./modules/tailscale.nix
+      ./modules/audio.nix
+      ./modules/boot.nix
+      ./modules/locale.nix
+    ];
+
+>>>>>>> 0882cfd (Fixing permissions Issues)
   networking.hostName = "jkearns-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -32,6 +42,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+<<<<<<< HEAD
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -50,6 +61,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+=======
+>>>>>>> 0882cfd (Fixing permissions Issues)
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -112,6 +125,10 @@
     pciutils
     tldr
     git
+<<<<<<< HEAD
+=======
+    age
+>>>>>>> 0882cfd (Fixing permissions Issues)
 
     # Apps
     obs-studio
@@ -134,7 +151,11 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
+<<<<<<< HEAD
   # services.openssh.enable = true;
+=======
+  services.openssh.enable = true;
+>>>>>>> 0882cfd (Fixing permissions Issues)
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

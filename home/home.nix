@@ -9,6 +9,10 @@
     ./fastfetch
     ./neovim
     ./rofi
+<<<<<<< HEAD
+=======
+    ./git.nix
+>>>>>>> 0882cfd (Fixing permissions Issues)
   ];
 
   programs.fzf.enable = true;
