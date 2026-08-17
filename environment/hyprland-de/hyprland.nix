@@ -24,10 +24,10 @@
   ];
 
 
-  #hardware = {
-  #  # graphics
-  #  graphics.enable = true;
-  #  # Needed by most Wayland compositors
-  #  nvidia.modesetting.enable = true;
-  #};
+  hardware = {
+    # graphics
+    graphics.enable = true;
+    # Needed by most Wayland compositors
+    nvidia.modesetting.enable = true;
+  };
 }

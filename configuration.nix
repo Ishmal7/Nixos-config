@@ -6,8 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
       ./modules/fonts.nix
       ./modules/nvidia.nix
       ./modules/displaylink.nix

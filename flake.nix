@@ -22,7 +22,6 @@
     ];
   in {
     nixosConfigurations = {
- 
       cosmic-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = sharedModules ++ [
@@ -46,13 +45,14 @@
         modules = sharedModules ++ [
           ./hosts/vivobook/hardware-configuration.nix
           ./environment/hyprland-de/hyprland.nix
+          ./modules/nvidia.nix
           ./environment/sddm.nix
           ./users/james.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.james = {
               imports = [
-                ./home/hyprland.nix
+                ./home/hyprland-home.nix
                 ./home/users-home/james-home.nix
               ];
             };
