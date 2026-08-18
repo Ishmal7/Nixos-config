@@ -9,6 +9,7 @@
   enable = true;
 
     settings = {
+      exec-once = "noctalia"
       monitor = [ ", preferred, auto, auto" ];
 
       input = {

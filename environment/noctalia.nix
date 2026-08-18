@@ -1,8 +1,7 @@
-{ pkgs, inputs, ... }:
+{ inputs, pkgs, ... }:
+
 {
-  # install package
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # ... maybe other stuff
   ];
 }
