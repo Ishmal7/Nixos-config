@@ -8,6 +8,14 @@
     xwayland.enable = true;
   };
 
+  # Login manager
+  services.greetd = {
+    enable = true;
+    settings.default_session.command =
+      "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+  };
+
+
   # Background metrics daemons requiered by Noctalia
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
@@ -19,9 +27,14 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  environment.systemPackages = with pkgs; [
-    noctalia-shell
-  ];
+  # Needed for file pickers, screen sharing
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 
 
   hardware = {

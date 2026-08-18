@@ -8,6 +8,7 @@ First NixOS config
 │   │   └── cosmic.nix
 │   ├── hyprland-de
 │   │   └── hyprland.nix
+│   ├── noctalia.nix
 │   └── sddm.nix
 ├── flake.lock
 ├── flake.nix
@@ -25,6 +26,7 @@ First NixOS config
 │   ├── hyprland-home.nix
 │   ├── neovim
 │   │   └── default.nix
+│   ├── noctalia-home.nix
 │   ├── rofi
 │   │   ├── default.nix
 │   │   └── themes
