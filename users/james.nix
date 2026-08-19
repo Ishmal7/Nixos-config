@@ -6,7 +6,10 @@
     description = "James";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
+      mgba
+      discord
+      spotify
+      obs-studio
     ];
   };
 }

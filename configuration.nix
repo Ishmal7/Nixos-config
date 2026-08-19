@@ -39,17 +39,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  #users.users."james" = {
-  #  isNormalUser = true;
-  #  description = "James";
-  #  extraGroups = [ "networkmanager" "wheel" ];
-  #  packages = with pkgs; [
-  #    kdePackages.kate
-  #  #  thunderbird
-  #  ];
-  #};
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -84,13 +73,12 @@
     age
 
     # Apps
-    obs-studio
     obsidian
     alacritty
     steam
     kitty   
     neovim
-    discord
+    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

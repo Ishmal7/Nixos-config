@@ -4,7 +4,7 @@
   home.username = "james";
   home.homeDirectory = "/home/james";
   home.stateVersion = "26.05";
-  home.packages = with pkgs; [ discord spotify ];
+  home.packages = with pkgs; [];
 
   imports = [
     ../alacritty
