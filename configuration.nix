@@ -59,7 +59,6 @@
 
     # Display
     quickshell
-    rofi
     tuigreet
 
     #Icon and Theme
@@ -77,10 +76,13 @@
     obsidian
     alacritty
     steam
-    kitty   
+    kitty
     neovim
     firefox
     libreoffice
+    vscode
+    vlc
+    yazi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
