@@ -60,6 +60,7 @@
     # Display
     quickshell
     rofi
+    tuigreet
 
     #Icon and Theme
     tela-icon-theme
@@ -79,6 +80,7 @@
     kitty   
     neovim
     firefox
+    libreoffice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

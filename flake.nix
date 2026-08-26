@@ -55,7 +55,7 @@
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
           ./hosts/vivobook/hardware-configuration.nix
-          ./environment/hypr-de/hypr.nix
+          ./environment/hypr-de/hyprland.nix
           ./modules/nvidia.nix
           ./environment/sddm.nix
           ./users/james.nix

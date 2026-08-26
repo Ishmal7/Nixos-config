@@ -10,6 +10,7 @@
       discord
       spotify
       obs-studio
+      deluge
     ];
   };
 }
