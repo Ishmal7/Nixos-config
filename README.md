@@ -37,8 +37,6 @@ First NixOS config
 │       ├── default.nix
 │       └── hardware-configuration.nix
 ├── modules
-│   ├── audio.nix
-│   ├── boot.nix
 │   ├── core
 │   │   ├── boot.nix
 │   │   ├── default.nix
@@ -46,19 +44,14 @@ First NixOS config
 │   │   ├── locale.nix
 │   │   └── networking.nix
 │   ├── desktop
-│   ├── displaylink.nix
-│   ├── fonts.nix
 │   ├── hardware
 │   │   ├── audio.nix
 │   │   ├── default.nix
 │   │   ├── displaylink.nix
 │   │   └── nvidia.nix
-│   ├── locale.nix
-│   ├── networking.nix
-│   ├── nvidia.nix
-│   ├── services
-│   │   └── tailscale.nix
-│   └── tailscale.nix
+│   └── services
+│       ├── default.nix
+│       └── tailscale.nix
 ├── README.md
 └── users
     └── james.nix

@@ -2,9 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    sddm-chili
+    sddm-chili-theme
     sddm-astronaut
-    libsForQt5.qt5.qtgraphicaleffects
+    qt5.qtgraphicaleffects
   ];
 
   #services.xserver.enable = true;
