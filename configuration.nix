@@ -7,14 +7,14 @@
 {
   imports =
     [
-      ./modules/fonts.nix
-      ./modules/nvidia.nix
-      ./modules/displaylink.nix
-      ./modules/tailscale.nix
-      ./modules/audio.nix
-      ./modules/boot.nix
-      ./modules/locale.nix
-      ./modules/networking.nix
+      #./modules/fonts.nix
+      #./modules/nvidia.nix
+      #./modules/displaylink.nix
+      #./modules/tailscale.nix
+      #./modules/audio.nix
+      #./modules/boot.nix
+      #./modules/locale.nix
+      #./modules/networking.nix
     ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -59,7 +59,6 @@
 
     # Display
     quickshell
-    tuigreet
 
     #Icon and Theme
     tela-icon-theme

@@ -2,14 +2,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/audio.nix
-    ../../modules/boot.nix
-    ../../modules/displaylink.nix
-    ../../modules/fonts.nix
-    ../../modules/locale.nix
-    ../../modules/nvidia.nix
-    ../../modules/tailscale.nix
-    ../../modules/networking.nix
+    ../../modules/core/default.nix
+    ../../modules/hardware/default.nix
+    ../../modules/services/default.nix
   ];
 
   #networking.hostName = "vivobook";

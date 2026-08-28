@@ -6,13 +6,13 @@ First NixOS config
 ├── environment
 │   ├── cosmic-de
 │   │   └── cosmic.nix
-│   ├── hyprland-de
-│   │   └── hyprland.nix
-│   ├── noctalia.nix
+│   ├── greetd.nix
+│   ├── hypr-de
+│   │   ├── hyprland.nix
+│   │   └── noctalia.nix
 │   └── sddm.nix
 ├── flake.lock
 ├── flake.nix
-├── hardware-configuration.nix
 ├── home
 │   ├── alacritty
 │   │   └── default.nix
@@ -23,10 +23,8 @@ First NixOS config
 │   │   └── default.nix
 │   ├── git.nix
 │   ├── home.nix
-│   ├── hyprland-home.nix
 │   ├── neovim
 │   │   └── default.nix
-│   ├── noctalia-home.nix
 │   ├── rofi
 │   │   ├── default.nix
 │   │   └── themes
@@ -41,12 +39,25 @@ First NixOS config
 ├── modules
 │   ├── audio.nix
 │   ├── boot.nix
-│   ├── displaylink-kde.nix
+│   ├── core
+│   │   ├── boot.nix
+│   │   ├── default.nix
+│   │   ├── fonts.nix
+│   │   ├── locale.nix
+│   │   └── networking.nix
+│   ├── desktop
 │   ├── displaylink.nix
 │   ├── fonts.nix
+│   ├── hardware
+│   │   ├── audio.nix
+│   │   ├── default.nix
+│   │   ├── displaylink.nix
+│   │   └── nvidia.nix
 │   ├── locale.nix
 │   ├── networking.nix
 │   ├── nvidia.nix
+│   ├── services
+│   │   └── tailscale.nix
 │   └── tailscale.nix
 ├── README.md
 └── users

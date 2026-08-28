@@ -23,6 +23,7 @@
   let
     sharedModules = [
       ./configuration.nix
+      ./hosts/vivobook/default.nix
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -35,7 +36,6 @@
       cosmic-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = sharedModules ++ [
-          ./hosts/vivobook/hardware-configuration.nix
           ./environment/cosmic-de/cosmic.nix
           ./users/james.nix
           home-manager.nixosModules.home-manager
@@ -54,9 +54,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
-          ./hosts/vivobook/hardware-configuration.nix
           ./environment/hypr-de/hyprland.nix
-          ./modules/nvidia.nix
           ./environment/sddm.nix
           ./users/james.nix
           ./environment/hypr-de/noctalia.nix
