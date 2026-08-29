@@ -5,6 +5,7 @@
     ../../modules/core/default.nix
     ../../modules/hardware/default.nix
     ../../modules/services/default.nix
+    ../../modules/desktop/default.nix
   ];
 
   #networking.hostName = "vivobook";
