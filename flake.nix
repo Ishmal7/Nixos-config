@@ -24,7 +24,7 @@
     sharedModules = [
       # ./configuration.nix
       ./hosts/vivobook/default.nix
-      ./users/james.nix
+      ./users/james/default.nix
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -34,7 +34,7 @@
     ];
   in {
     nixosConfigurations = {
-      nixosConfigurations = nixpkgs.lib.nixosSystem {
+      jkearns-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
@@ -42,8 +42,7 @@
           {
             home-manager.users.james = { 
               imports = [
-                ./home/cosmic-home.nix
-                ./home/users-home/james-home.nix
+                ./users/james/home.nix
               ];
             };
           }
