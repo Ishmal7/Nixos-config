@@ -1,7 +1,7 @@
 {pkgs, configs, ...}:
 {
-  networking.hostName = "jkearns-nixos";
-  # networking.wireless.enable = true; #Enables wireless support via wpa_supplicant
+  #networking.hostName = "jkearns-nixos";
+  networking.wireless.enable = true; #Enables wireless support via wpa_supplicant
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user.password@proxy:port/";

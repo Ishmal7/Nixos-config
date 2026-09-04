@@ -2,38 +2,11 @@ First NixOS config
 
 ```text
 .
-├── configuration.nix
-├── environment
-│   ├── cosmic-de
-│   │   └── cosmic.nix
-│   ├── greetd.nix
-│   ├── hypr-de
-│   │   ├── hyprland.nix
-│   │   └── noctalia.nix
-│   └── sddm.nix
 ├── flake.lock
 ├── flake.nix
-├── home
-│   ├── alacritty
-│   │   └── default.nix
-│   ├── color
-│   │   └── color.nix
-│   ├── cosmic-home.nix
-│   ├── fastfetch
-│   │   └── default.nix
-│   ├── git.nix
-│   ├── home.nix
-│   ├── neovim
-│   │   └── default.nix
-│   ├── rofi
-│   │   ├── default.nix
-│   │   └── themes
-│   │       ├── Monokai.rasi
-│   │       └── paper-float.rasi
-│   └── users-home
-│       └── james-home.nix
 ├── hosts
 │   └── vivobook
+│       ├── configuration.nix
 │       ├── default.nix
 │       └── hardware-configuration.nix
 ├── modules
@@ -42,8 +15,15 @@ First NixOS config
 │   │   ├── default.nix
 │   │   ├── fonts.nix
 │   │   ├── locale.nix
-│   │   └── networking.nix
+│   │   ├── networking.nix
+│   │   └── packages.nix
 │   ├── desktop
+│   │   ├── cosmic.nix
+│   │   ├── default.nix
+│   │   ├── hypr-de
+│   │   │   ├── hyprland.nix
+│   │   │   └── noctalia.nix
+│   │   └── sddm.nix
 │   ├── hardware
 │   │   ├── audio.nix
 │   │   ├── default.nix
@@ -54,5 +34,21 @@ First NixOS config
 │       └── tailscale.nix
 ├── README.md
 └── users
-    └── james.nix
+    └── james
+        ├── alacritty
+        │   └── default.nix
+        ├── color
+        │   └── color.nix
+        ├── default.nix
+        ├── fastfetch
+        │   └── default.nix
+        ├── git.nix
+        ├── home
+        ├── neovim
+        │   └── default.nix
+        └── rofi
+            ├── default.nix
+            └── themes
+                ├── Monokai.rasi
+                └── paper-float.rasi
 ```

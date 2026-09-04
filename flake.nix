@@ -22,7 +22,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     sharedModules = [
-      ./configuration.nix
+      # ./configuration.nix
       ./hosts/vivobook/default.nix
       ./users/james.nix
       home-manager.nixosModules.home-manager
@@ -34,33 +34,15 @@
     ];
   in {
     nixosConfigurations = {
-      cosmic-nix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = sharedModules ++ [
-          ./environment/cosmic-de/cosmic.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.james = { 
-              imports = [
-                ./home/cosmic-home.nix
-                ./home/users-home/james-home.nix
-              ];
-            };
-          }
-        ];
-      };
-
-      hyprland-nix = nixpkgs.lib.nixosSystem {
+      nixosConfigurations = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
           home-manager.nixosModules.home-manager
           {
-
-            home-manager.extraSpecialArgs = { inherit inputs; };
-
-            home-manager.users.james = {
+            home-manager.users.james = { 
               imports = [
+                ./home/cosmic-home.nix
                 ./home/users-home/james-home.nix
               ];
             };
