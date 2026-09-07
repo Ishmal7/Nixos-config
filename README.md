@@ -6,9 +6,9 @@ First NixOS config
 ├── flake.nix
 ├── hosts
 │   └── vivobook
-│       ├── configuration.nix
 │       ├── default.nix
-│       └── hardware-configuration.nix
+│       ├── hardware-configuration.nix
+│       └── packages.nix
 ├── modules
 │   ├── core
 │   │   ├── boot.nix
@@ -43,7 +43,7 @@ First NixOS config
         ├── fastfetch
         │   └── default.nix
         ├── git.nix
-        ├── home
+        ├── home.nix
         ├── neovim
         │   └── default.nix
         └── rofi
