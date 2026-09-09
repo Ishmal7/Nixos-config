@@ -1,9 +1,9 @@
 {pkgs, config, ...}:
 {
- services.displayManager.enable = true;
+  #services.displayManager.enable = true;
 
   wayland.windowManager.hyprland = {
-    enable = true;
+   # enable = true;
 
     # 1. Inform Home Manager that you are using Lua syntax instead of Hyprlang (.con>
     configType = "lua"; #

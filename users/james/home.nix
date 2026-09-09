@@ -12,7 +12,7 @@
     ../../modules/home/neovim
     ../../modules/home/rofi
     ../../modules/home/git.nix
-    ../../modules/home/hyprland.nix
+    ../../modules/home/hypr-de/default.nix
     ../../modules/home/noctalia/default.nix
   ];
 
