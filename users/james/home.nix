@@ -7,11 +7,12 @@
   home.packages = with pkgs; [ discord spotify ];
 
   imports = [
-    ./alacritty
-    ./fastfetch
-    ./neovim
-    ./rofi
-    ./git.nix
+    ../../modules/home/alacritty
+    ../../modules/home/fastfetch
+    ../../modules/home/neovim
+    ../../modules/home/rofi
+    ../../modules/home/git.nix
+    ../../modules/home/hyprland.nix
   ];
 
   programs.fzf.enable = true;

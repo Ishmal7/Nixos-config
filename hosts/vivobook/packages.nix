@@ -51,7 +51,6 @@
     firefox
     libreoffice
     vscode
-    opencode-desktop
     vlc
     yazi
   ];

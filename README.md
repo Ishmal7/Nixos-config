@@ -29,26 +29,33 @@ First NixOS config
 │   │   ├── default.nix
 │   │   ├── displaylink.nix
 │   │   └── nvidia.nix
+│   ├── home
+│   │   ├── alacritty
+│   │   │   └── default.nix
+│   │   ├── color
+│   │   │   └── color.nix
+│   │   ├── default.nix
+│   │   ├── fastfetch
+│   │   │   └── default.nix
+│   │   ├── git.nix
+│   │   ├── hypr-de
+│   │   │   ├── hyprland.lua
+│   │   │   └── noctalia
+│   │   │       ├── bar.toml
+│   │   │       └── dock.toml
+│   │   ├── neovim
+│   │   │   └── default.nix
+│   │   └── rofi
+│   │       ├── default.nix
+│   │       └── themes
+│   │           ├── Monokai.rasi
+│   │           └── paper-float.rasi
 │   └── services
 │       ├── default.nix
 │       └── tailscale.nix
 ├── README.md
 └── users
     └── james
-        ├── alacritty
-        │   └── default.nix
-        ├── color
-        │   └── color.nix
         ├── default.nix
-        ├── fastfetch
-        │   └── default.nix
-        ├── git.nix
-        ├── home.nix
-        ├── neovim
-        │   └── default.nix
-        └── rofi
-            ├── default.nix
-            └── themes
-                ├── Monokai.rasi
-                └── paper-float.rasi
+        └── home.nix
 ```

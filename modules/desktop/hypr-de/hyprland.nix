@@ -2,23 +2,34 @@
 
 {
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true; # recommended for most users
-    xwayland.enable = true; # Xwayland can be disabled.
-  };
+  #programs.hyprland = {
+  #  enable = true;
+  #  withUWSM = true; # recommended for most users
+  #  xwayland.enable = true; # Xwayland can be disabled.
+  #};
 
   services.displayManager.enable = true;
 
-  #services.greetd = {
-  #  enable = true;
-  #  settings = {
-  #    default_session = {
-  #      user = "greeter";
-  #      command = "${tuigreetPkg}/bin/tuigreet --time --remember --remember-user-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-  #    };  
-  #  };
-  #};
+  wayland.windowManager.hyprland = {
+    enable = true;
+ 
+    # 1. Inform Home Manager that you are using Lua syntax instead of Hyprlang (.conf)
+    configType = "lua"; #
+ 
+    # 2. Tell Home Manager to read the local hyprland.lua file into the generation system
+    extraConfig = builtins.readFile ../../home/hypr-de/hyprland.lua; #
+  };
+
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        user = "greeter";
+        command = "${tuigreetPkg}/bin/tuigreet --time --remember --remember-user-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
+      };  
+    };
+  };
 
   # Needed for file pickers, screen sharing
   xdg.portal = {
@@ -28,15 +39,5 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
-
- # IF Using the Development version
- # programs.hyprland = {
- #   enable = true;
- #   # set the flake package
- #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
- #   # make sure to also set the portal package, so that they are in sync
- #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
- # };
 }
 
