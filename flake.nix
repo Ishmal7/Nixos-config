@@ -22,7 +22,6 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     sharedModules = [
-      # ./configuration.nix
       ./hosts/vivobook/default.nix
       ./users/james/default.nix
       home-manager.nixosModules.home-manager
