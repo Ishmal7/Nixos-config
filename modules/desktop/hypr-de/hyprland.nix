@@ -2,24 +2,13 @@
 
 {
 
-  #programs.hyprland = {
-  #  enable = true;
-  #  withUWSM = true; # recommended for most users
-  #  xwayland.enable = true; # Xwayland can be disabled.
-  #};
-
-  services.displayManager.enable = true;
-
-  wayland.windowManager.hyprland = {
+  programs.hyprland = {
     enable = true;
- 
-    # 1. Inform Home Manager that you are using Lua syntax instead of Hyprlang (.conf)
-    configType = "lua"; #
- 
-    # 2. Tell Home Manager to read the local hyprland.lua file into the generation system
-    extraConfig = builtins.readFile ../../home/hypr-de/hyprland.lua; #
+    withUWSM = true; # recommended for most users
+    xwayland.enable = false; # Xwayland can be disabled.
   };
 
+  services.displayManager.enable = true;
 
   #services.greetd = {
   #  enable = true;

@@ -1,7 +1,7 @@
 First NixOS config
 
 ```text
-.
+`.
 ├── flake.lock
 ├── flake.nix
 ├── hosts
@@ -39,12 +39,14 @@ First NixOS config
 │   │   │   └── default.nix
 │   │   ├── git.nix
 │   │   ├── hypr-de
-│   │   │   ├── hyprland.lua
-│   │   │   └── noctalia
-│   │   │       ├── bar.toml
-│   │   │       └── dock.toml
+│   │   │   ├── default.nix
+│   │   │   └── hyprland.lua
 │   │   ├── neovim
 │   │   │   └── default.nix
+│   │   ├── noctalia
+│   │   │   ├── bar.toml
+│   │   │   ├── default.nix
+│   │   │   └── dock.toml
 │   │   └── rofi
 │   │       ├── default.nix
 │   │       └── themes
@@ -57,5 +59,4 @@ First NixOS config
 └── users
     └── james
         ├── default.nix
-        └── home.nix
-```
+        └── home.nix``
