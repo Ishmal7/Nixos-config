@@ -13,6 +13,7 @@
     ../../modules/home/rofi
     ../../modules/home/git.nix
     ../../modules/home/hyprland.nix
+    ../../modules/home/noctalia/default.nix
   ];
 
   programs.fzf.enable = true;
