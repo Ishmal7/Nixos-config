@@ -6,8 +6,10 @@ First NixOS config
 ├── flake.nix
 ├── hosts
 │   └── vivobook
+│       ├── default.nix
 │       ├── hardware-configuration.nix
 │       └── packages.nix
+├── lib
 ├── modules
 │   ├── core
 │   │   ├── boot.nix
