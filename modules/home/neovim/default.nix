@@ -5,6 +5,22 @@
 {
     programs.neovim = {
         enable = true;
+
+	  plugins = [
+            {
+              plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ 
+                p.tree-sitter-nix
+                p.tree-sitter-lua
+                p.tree-sitter-python
+	      ]));
+              type = "lua";
+              config = ''
+                require('nvim-treesitter.configs').setup {
+                  highlight = { enable = true },
+                }
+              '';
+             }
+           ];
     
         viAlias = true;
         vimAlias = true;
