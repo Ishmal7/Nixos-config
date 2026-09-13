@@ -1,12 +1,11 @@
 First NixOS config
 
 ```text
-`.
+.
 ├── flake.lock
 ├── flake.nix
 ├── hosts
 │   └── vivobook
-│       ├── default.nix
 │       ├── hardware-configuration.nix
 │       └── packages.nix
 ├── modules
@@ -59,4 +58,5 @@ First NixOS config
 └── users
     └── james
         ├── default.nix
-        └── home.nix``
+        └── home.nix
+```
