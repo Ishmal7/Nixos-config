@@ -3,10 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    #hyprland = {
-    #  url = "github:hyprwm/hyprland";
-    #};
+ 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };   
 
     noctalia = {
       url = "github:noctalia-dev/noctalia";
@@ -19,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
   let
     sharedModules = [
       ./hosts/vivobook/default.nix
@@ -37,6 +38,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
+	  sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.users.james = { 

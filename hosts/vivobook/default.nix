@@ -1,25 +1,16 @@
 {config, pkgs, ...}:
 {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  # enable upower
+  services.upower.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   imports = [
     ./hardware-configuration.nix
-    ./packages.nix
     ../../modules/core/default.nix
     ../../modules/hardware/default.nix
     ../../modules/services/default.nix

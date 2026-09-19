@@ -1,0 +1,9 @@
+keys:
+  - &james age1exmgmy4qr6jzxh25mnztpgmuv0qyr6aqzqw0ehhv2xjknmh6e9gsk83zgp
+  - &vivobook age12k64mx30j8qscjkux9dpwmwrzgfxyl3sd7p4cw5w52qqystulgtqnxvy4y
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *james
+      - *vivobook

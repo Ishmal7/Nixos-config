@@ -3,7 +3,7 @@
 {
   home.username = "james";
   home.homeDirectory = "/home/james";
-  home.stateVersion = "26.05";
+  home.stateVersion = "26.11";
   home.packages = with pkgs; [ discord spotify ];
 
   imports = [

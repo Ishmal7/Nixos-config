@@ -13,6 +13,8 @@
     tmux
     tree
     bat
+    sops
+    age
 
     # Display
     quickshell
@@ -25,15 +27,14 @@
     displaylink
     unzip
     pciutils
+    cifs-utils
     tldr
     git
-    age
 
     # Apps
     obsidian
     alacritty
     steam
-    kitty
     neovim
     firefox
     libreoffice
