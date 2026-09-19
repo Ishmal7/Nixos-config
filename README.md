@@ -4,11 +4,26 @@ First NixOS config
 .
 ├── flake.lock
 ├── flake.nix
+├── home
+│   ├── default.nix
+│   ├── hypr-de
+│   │   ├── default.nix
+│   │   └── hyprland.lua
+│   ├── noctalia
+│   │   ├── bar.toml
+│   │   ├── default.nix
+│   │   └── dock.toml
+│   └── programs
+│       ├── alacritty.nix
+│       ├── color.nix
+│       ├── default.nix
+│       ├── fastfetch.nix
+│       ├── git.nix
+│       └── neovim.nix
 ├── hosts
 │   └── vivobook
 │       ├── default.nix
-│       ├── hardware-configuration.nix
-│       └── packages.nix
+│       └── hardware-configuration.nix
 ├── lib
 ├── modules
 │   ├── core
@@ -16,8 +31,11 @@ First NixOS config
 │   │   ├── default.nix
 │   │   ├── fonts.nix
 │   │   ├── locale.nix
+│   │   ├── mount.nix
 │   │   ├── networking.nix
-│   │   └── packages.nix
+│   │   ├── nix.nix
+│   │   ├── packages.nix
+│   │   └── secrets.nix
 │   ├── desktop
 │   │   ├── cosmic.nix
 │   │   ├── default.nix
@@ -30,33 +48,12 @@ First NixOS config
 │   │   ├── default.nix
 │   │   ├── displaylink.nix
 │   │   └── nvidia.nix
-│   ├── home
-│   │   ├── alacritty
-│   │   │   └── default.nix
-│   │   ├── color
-│   │   │   └── color.nix
-│   │   ├── default.nix
-│   │   ├── fastfetch
-│   │   │   └── default.nix
-│   │   ├── git.nix
-│   │   ├── hypr-de
-│   │   │   ├── default.nix
-│   │   │   └── hyprland.lua
-│   │   ├── neovim
-│   │   │   └── default.nix
-│   │   ├── noctalia
-│   │   │   ├── bar.toml
-│   │   │   ├── default.nix
-│   │   │   └── dock.toml
-│   │   └── rofi
-│   │       ├── default.nix
-│   │       └── themes
-│   │           ├── Monokai.rasi
-│   │           └── paper-float.rasi
 │   └── services
 │       ├── default.nix
 │       └── tailscale.nix
 ├── README.md
+├── secrets
+│   └── Nas.yaml
 └── users
     └── james
         ├── default.nix

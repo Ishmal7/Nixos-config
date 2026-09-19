@@ -1,5 +1,4 @@
-# [colors from Tempus Night theme]
-# (https://protesilaos.com/tempus-night/).
+
 rec {
   background     = normal.black;
   alt-background = bright.black;
@@ -27,3 +26,4 @@ rec {
     white   = "#e0e0e0";
   };
 }
+

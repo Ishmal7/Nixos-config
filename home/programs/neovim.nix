@@ -1,26 +1,24 @@
-# nvim.nix by poligle
-
 { config, pkgs, ... }:
 
 {
     programs.neovim = {
         enable = true;
 
-	  plugins = [
-            {
-              plugin = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ 
-                p.tree-sitter-nix
-                p.tree-sitter-lua
-                p.tree-sitter-python
-	      ]));
-              type = "lua";
-              config = ''
-                require('nvim-treesitter.configs').setup {
-                  highlight = { enable = true },
-                }
-              '';
-             }
-           ];
+        plugins = let
+          nvim-treesitter-with-plugins = pkgs.vimPlugins.nvim-treesitter.withPlugins (treesitter-plugins:
+            with treesitter-plugins; [
+              bash
+              c
+              cpp
+              lua
+              nix
+              python
+            ]);
+        in
+          with pkgs.vimPlugins; [
+	    telescope-nvim
+            nvim-treesitter-with-plugins
+          ];
     
         viAlias = true;
         vimAlias = true;

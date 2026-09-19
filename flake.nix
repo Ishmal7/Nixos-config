@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
- 
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, nixvim, ... }@inputs:
   let
     sharedModules = [
       ./hosts/vivobook/default.nix
@@ -43,6 +43,7 @@
           {
             home-manager.users.james = { 
               imports = [
+	        nixvim.homeModules.nixvim
                 ./users/james/home.nix
               ];
             };

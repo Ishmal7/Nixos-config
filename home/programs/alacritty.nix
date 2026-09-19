@@ -1,6 +1,6 @@
 { ... }:
 let
-  color = import ../color/color.nix;
+  color = import ./color.nix;
 in {
   programs.alacritty = {
     enable = true;
