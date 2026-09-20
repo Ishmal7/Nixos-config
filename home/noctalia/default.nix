@@ -203,7 +203,7 @@
       # ║  ✦ HOT CORNERS — flick the mouse, run the shell          ║
       # ╚══════════════════════════════════════════════════════════╝
       hot_corners = {
-        enabled = false;
+        enabled = true;
         top_left = {
           action = "overview";
         };
@@ -220,12 +220,12 @@
 
       control_center = {
         shortcuts = [
-          { type = "wifi"; }
-          { type = "bluetooth"; }
-          { type = "caffeine"; }
-          { type = "power_profile"; }
-          { type = "nightlight"; }
-          { type = "wallpaper"; }
+          "wifi"
+          "bluetooth"
+          "caffeine"
+          "power_profile"
+          "nightlight"
+          "wallpaper"
         ];
       };
 
@@ -252,7 +252,7 @@
         show_dots = true;
         launcher_position = "start";
         launcher_icon = "grid-dots";
-	pinned = ["alacritty" "yazi" "spotify" "obsidian" "mgba"];
+	#pinned = ["alacritty" "yazi" "spotify" "obsidian" "mgba"];
       };
 
       # ╔══════════════════════════════════════════════════════════╗

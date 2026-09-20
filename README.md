@@ -5,14 +5,11 @@ First NixOS config
 ├── flake.lock
 ├── flake.nix
 ├── home
-│   ├── default.nix
 │   ├── hypr-de
 │   │   ├── default.nix
 │   │   └── hyprland.lua
 │   ├── noctalia
-│   │   ├── bar.toml
-│   │   ├── default.nix
-│   │   └── dock.toml
+│   │   └── default.nix
 │   └── programs
 │       ├── alacritty.nix
 │       ├── color.nix
