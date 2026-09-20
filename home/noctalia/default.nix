@@ -1,102 +1,493 @@
-{config, pkgs, ... }: 
+{config, pkgs, ... }:
+#  ███╗   ██╗ ██████╗  ██████╗████████╗ █████╗ ██╗     ██╗ █████╗
+#  ████╗  ██║██╔═══██╗██╔════╝╚══██╔══╝██╔══██╗██║     ██║██╔══██╗
+#  ██╔██╗ ██║██║   ██║██║        ██║   ███████║██║     ██║███████║
+#  ██║╚██╗██║██║   ██║██║        ██║   ██╔══██║██║     ██║██╔══██║
+#  ██║ ╚████║╚██████╔╝╚██████╗   ██║   ██║  ██║███████╗██║██║  ██║
+#  ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝
+#            noctalia v5 · glass rice · wallpaper-driven colors
+#            https://docs.noctalia.dev/v5
 {
   programs.noctalia = {
     enable = true;
+
     settings = {
-      
-      order = [ "main" ]; # layer-shell creation order
 
-      bar.default = {
-        position = "top"; # top | bottom | left | right
-        enabled = true;
-        auto_hide = false; # slide out after pointer leaves; reveal from edge trigger strip
-        smart_auto_hide = false; # show when the active workspace is empty; hide when it has windows
-        show_on_workspace_switch = true; # with auto_hide: briefly reveal when the active workspace changes
-        reserve_space = true; # reserve compositor exclusive zone / push windows away
-        layer = "top"; # top | overlay; overlay appears above fullscreen apps
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ SHELL — glass, shadows, silky animations              ║
+      # ╚══════════════════════════════════════════════════════════╝
+      shell = {
+        font_family = "JetBrainsMono Nerd Font";
+        ui_scale = 1.0;
+        corner_radius_scale = 1.2;
+        avatar_path = "~/.face";
+        telemetry_enabled = false;
+        clipboard_enabled = true;
+        clipboard_auto_paste = "off";
+        time_format = "{:%I:%M %p}";
+        date_format = "%A, %d %B";
 
-        thickness = 34; # bar cross-axis size in pixels (height for horizontal, width for vertical)
-        background_opacity = 0.8; # 0.0 (transparent) to 1.0 (opaque)
-        border = "outline"; # color role or #RRGGBB for the bar outline
-        border_width = 0.0; # inside outline width in pixels; 0 disables it
-        shadow = true; # cast the global [shell.shadow]
-        contact_shadow = false; # dark gradient between an attached panel and the bar (depth at the seam)
-        panel_overlap = 1; # logical px an attached panel overlaps the bar edge to hide the seam
-        radius = 12; # global corner radius fallback
-        radius_top_left = 12;
-        radius_top_right = 12;
-        radius_bottom_left = 12;
-        radius_bottom_right = 12;
-        concave_edge_corners = true; # carve the screen-edge corners inward; requires margin_edge = 0
-        margin_ends = 100; # inset from each end of the bar along its main axis
-        margin_edge = 0; # distance from the nearest screen edge (positive values float the bar)
-        margin_opposite_edge = 0; # extra reserved space on the inward side of the bar (below for top, above for bottom)
-        padding = 14; # main-axis padding from bar edges to start/end widget sections
-        widget_spacing = 6; # gap between widgets within a section
-        hover_highlight = true; # softly tint the widget under the mouse pointer with its foreground color
-        scale = 1.0; # content scale multiplier for icons, spacing, and base text size
-        font_scale = 1.0; # additional text-only scale multiplier
-        font_weight = 500; # CSS weight 100–1000 (e.g. 400 regular, 700 bold); primary label weight for bar widgets
-        font_family = ""; # typeface for this bar's widgets; empty inherits the global font
+        animation = {
+          enabled = true;
+          speed = 1.0;
+        };
 
-        # Default capsule style for all widgets on this bar (see Widget Capsule section)
-        capsule = false;
-        capsule_fill = "surface_variant";
-        capsule_thickness = 0.76; # capsule size across the bar as a fraction of bar thickness (1.0 fills the bar)
-        capsule_radius = 8.0; # omit for automatic pill radius
-        capsule_opacity = 1.0;
-        # capsule_border = "outline"; # omit this key for no border by default
+        shadow = {
+          direction = "down";
+          alpha = 0.65;
+        };
 
-        start = [ "launcher" "wallpaper" "workspaces" ];
-        center = [ "clock" "media" "battery" ];
-        end = [ "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "control-center" "session" ];
+        # frosted-glass panels, floating off the bar
+        panel = {
+          transparency_mode = "glass";
+          borders = true;
+          shadow = true;
+          launcher_placement = "floating";
+          launcher_position = "center";
+          clipboard_placement = "floating";
+          clipboard_position = "center";
+          control_center_placement = "floating";
+          session_placement = "floating";
+          session_position = "center";
+          floating_offset = 10;
+          open_near_click_control_center = true;
+        };
+
+        launcher = {
+          app_grid = true;
+          categories = true;
+          show_icons = true;
+          sort_by_usage = true;
+          session_search = true;
+        };
+
+        # rounded screen corners, faux-CRT style
+        screen_corners = {
+          enabled = false;
+          size = 24;
+        };
+
+        screenshot = {
+          save_to_file = true;
+          copy_to_clipboard = true;
+          freeze_screen = true;
+          directory = "~/Pictures/Screenshots";
+        };
       };
 
-      dock.default = {
-        enabled = true;      # set true to activate
-        position = "bottom";   # top | bottom | left | right
-        active_monitor_only = false;      # when true, only show apps/windows from the active monitor
-        monitors = [];         # connector names to show on; empty = all outputs
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ THEME — colors ripped live from the wallpaper         ║
+      # ╚══════════════════════════════════════════════════════════╝
+      theme = {
+        mode = "dark";
+        source = "wallpaper";
+        wallpaper_scheme = "m3-tonal-spot";
+        templates = {
+          builtin_ids = [
+            "cava"
+            "gtk3"
+            "gtk4"
+            "kcolorscheme"
+            "qt"
+            "niri"
+            "foot"
+            "btop"
+            "starship"
+          ];
+        };
+      };
 
-        icon_size = 48;
-        main_axis_padding = 16;          # inner padding along the icon row (main axis)
-        cross_axis_padding = 8;          # inner padding perpendicular to the icon row
-        item_spacing = 6;          # gap between items in pixels
-        background_opacity = 0.65;
-        border = "outline";  # color role or #RRGGBB for the dock outline
-        border_width = 0.0;        # inside outline width in pixels; 0 disables it
-        shadow = true;       # cast the global [shell.shadow]
-        radius = 16;
-        radius_top_left = 16;         # optional per-corner overrides
-        radius_top_right = 16;
-        radius_bottom_left = 16;
-        radius_bottom_right = 16;
-        concave_edge_corners = true;      # carve the screen-edge corners inward; requires margin_edge = 0
-        margin_ends = 0;          # inset from each end of the dock along its main axis
-        margin_edge = 0;          # distance from the nearest screen edge (positive values float the dock)
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ WALLPAPER — animated transitions                      ║
+      # ╚══════════════════════════════════════════════════════════╝
+      wallpaper = {
+        enabled = true;
+        directory = "~/Pictures/Wallpapers";
+        fill_mode = "crop";
+        transition = [
+          "fade"
+          "disc"
+          "stripes"
+          "wipe"
+          "zoom"
+          "honeycomb"
+        ];
+        transition_duration = 1500;
+        edge_smoothness = 0.3;
+        transition_on_startup = true;
+      };
 
-        show_running = true;       # also show running apps not in the pinned list
-        auto_hide = true;      # slide out when pointer leaves; reveal from edge trigger strip
-        smart_auto_hide = true;      # show when the active workspace is empty; hide when it has windows
-        reserve_space = false;       # reserve compositor exclusive zone / push windows away
-        layer = "top";      # top | overlay — overlay keeps the dock above fullscreen apps
+      weather = {
+        enabled = true;
+        unit = "celsius";
+        effects = true;
+      };
 
-        active_scale = 1.0;        # icon scale for the focused app (clamped 0.1–1.75)
-        inactive_scale = 0.85;       # icon scale for non-focused apps (clamped 0.1–1.0)
-        magnification = true;       # magnify icons near the pointer (macOS-style)
-        magnification_scale = 1.45;       # max scale multiplier at the pointer center (1.0–2.0; 1.0 = off)
-        active_opacity = 1.0;
-        inactive_opacity = 0.85;
-        show_instance_count = true;       # badge with window count when an app has 2+ windows
-        show_dots = false;      # running-window indicator dots below app icons
+      location = {
+        auto_locate = false;
+        address = "Watertown, Ma";
+      };
 
-        launcher_position = "none";     # none | start | end - optional launcher button on the dock
-        launcher_icon = "grid-dots"; # Tabler glyph for the launcher button
-        launcher_custom_image = "";    # image path; overrides launcher_icon when set
-        launcher_custom_image_colorize = false; # tint the custom image with the icon color
+      nightlight = {
+        enabled = true;
+        force = false;
+        temperature_day = 4300;
+        temperature_night = 3800;
+      };
 
-        # Desktop entry IDs, StartupWMClass, or human-readable names
-        pinned = ["firefox" "yazi" "discord" "spotify" "Alacritty" "obsidian"]; 
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ NOTIFICATIONS + OSD — frosted toasts, side sliders    ║
+      # ╚══════════════════════════════════════════════════════════╝
+      notification = {
+        enable_daemon = true;
+        layer = "overlay";
+        background_opacity = 0.9;
+        offset_x = 16;
+        offset_y = 12;
+      };
+
+      osd = {
+        orientation = "vertical";
+        position_vertical = "center_right";
+        position = "top_right";
+        background_opacity = 0.9;
+        offset_x = 16;
+        offset_y = 12;
+      };
+
+      audio = {
+        enable_overdrive = false;
+      };
+
+      brightness = {
+        enable_ddcutil = false;
+      };
+
+      # built-in low-battery warning fires at this percentage
+      battery = {
+        warning_threshold = 40;
+      };
+
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ LOCK SCREEN — blurred live desktop snapshot           ║
+      # ╚══════════════════════════════════════════════════════════╝
+      lockscreen = {
+        enabled = true;
+        blurred_desktop = true;
+        blur_intensity = 0.8;
+        tint_intensity = 0.4;
+      };
+
+      idle = {
+        behavior = {
+          "screen-off" = {
+            enabled = true;
+            timeout = 300; # 5 min → dim to 10% brightness
+            command = "brightnessctl -s set 10%";
+            resume_command = "brightnessctl -r";
+          };
+          lock = {
+            enabled = true;
+            timeout = 960; # 16 min → lock
+            command = "hyprlock";
+          };
+          suspend = {
+            enabled = true;
+            timeout = 1140; # 19 min → suspend
+            command = "systemctl suspend";
+          };
+        };
+      };
+
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ HOT CORNERS — flick the mouse, run the shell          ║
+      # ╚══════════════════════════════════════════════════════════╝
+      hot_corners = {
+        enabled = false;
+        top_left = {
+          action = "overview";
+        };
+        top_right = {
+          action = "control_center";
+        };
+        bottom_left = {
+          action = "launcher";
+        };
+        bottom_right = {
+          action = "window_switcher";
+        };
+      };
+
+      control_center = {
+        shortcuts = [
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "caffeine"; }
+          { type = "power_profile"; }
+          { type = "nightlight"; }
+          { type = "wallpaper"; }
+        ];
+      };
+
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ DOCK — macOS-style, magnifying, auto-hiding           ║
+      # ╚══════════════════════════════════════════════════════════╝
+      dock = {
+        enabled = false;
+        position = "bottom";
+        auto_hide = true;
+        reserve_space = false;
+        icon_size = 44;
+        background_opacity = 0.78;
+        radius = 20;
+        margin_edge = 8;
+        item_spacing = 6;
+        shadow = true;
+        show_running = true;
+        magnification = true;
+        magnification_scale = 1.5;
+        active_scale = 1.0;
+        inactive_scale = 0.88;
+        inactive_opacity = 0.8;
+        show_dots = true;
+        launcher_position = "start";
+        launcher_icon = "grid-dots";
+	pinned = ["alacritty" "yazi" "spotify" "obsidian" "mgba"];
+      };
+
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ BAR — glass strip, 2px off the top, grouped w/ air    ║
+      # ║                                                          ║
+      # ║  ┌──────────────────────────────────────────────────┐   ║
+      # ║  │ ❄ date ☁ win   ●○○○   ♪song▁▃▅ stats net ··🔋 ⏻ │   ║
+      # ║  └──────────────────────────────────────────────────┘   ║
+      # ╚══════════════════════════════════════════════════════════╝
+      bar = {
+        main = {
+          position = "top";
+          thickness = 32;
+          background_opacity = 0.6;
+          margin_edge = 0;
+          margin_ends = 0;
+          padding = 10;
+          widget_spacing = 10;
+          radius = 10;
+          shadow = true;
+          auto_hide = false;
+          reserve_space = true;
+          font_weight = 600;
+
+          start = [
+            "control-center"
+            "gap"
+            "clock"
+            "gap"
+            "weather"
+            "gap"
+            "gap"
+            "active_window"
+          ];
+          center = [ "workspaces" ];
+          end = [
+            "media"
+            "media_viz"
+            "gap"
+            "cpu"
+            "ram"
+            "gap"
+            "network"
+            "bluetooth"
+            "volume"
+            "microphone"
+            "brightness"
+            "gap"
+            "gap"
+            "tray"
+            # "screenshot"
+            "clipboard"
+            "notifications"
+            "gap"
+            "battery"
+            "caffeine"
+            "session"
+          ];
+        };
+      };
+
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ WIDGETS — per-widget tuning                           ║
+      # ╚══════════════════════════════════════════════════════════╝
+      widget = {
+        # ❄ NixOS snowflake, tinted with the wallpaper accent
+        "control-center" = {
+          custom_image = "${config.programs.noctalia.package}/share/noctalia/assets/images/distros/nixos.svg";
+          custom_image_colorize = true;
+        };
+
+        clock = {
+          format = "{:%H:%M:%S}  󰃭 {:%a %d %b}";
+          tooltip_format = "{:%A, %d %B %Y — %I:%M:%S %p}";
+          color = "primary";
+        };
+
+        weather = {
+          show_condition = true;
+          show_temperature = true;
+          color = "tertiary";
+        };
+
+        # breathing room between widget groups
+        gap = {
+          type = "spacer";
+          length = 16;
+        };
+
+        # song + album art, vanishes when nothing plays
+        media = {
+          min_length = 80;
+          max_length = 150;
+          art_size = 24;
+          title_scroll = "always";
+          hide_when_no_media = true;
+        };
+
+        # mini cava-style bars glued to the media block
+        media_viz = {
+          type = "audio_visualizer";
+          width = 60;
+          bands = 20;
+          mirrored = true;
+          centered = true;
+          show_when_idle = false;
+          color_1 = "primary";
+          color_2 = "tertiary";
+        };
+
+        active_window = {
+          display = "icon_and_text";
+          max_length = 300;
+          title_scroll = "on_hover";
+          color = "secondary";
+        };
+
+        workspaces = {
+          display = "name";
+          max_label_chars = 10;
+          labels_only_when_occupied = true;
+          focused_color = "primary";
+          occupied_color = "tertiary";
+          empty_color = "outline";
+          pill_scale = 1.2;
+          active_pill_size = 2.4;
+          hide_when_empty = true;
+        };
+
+        tray = {
+          drawer = true;
+        };
+
+        # icon-only stats — hover for the full system readout
+        cpu = {
+          type = "sysmon";
+          stat = "cpu_usage";
+          display = "gauge";
+          show_label = false;
+          highlight_color = "error";
+        };
+
+        ram = {
+          type = "sysmon";
+          stat = "ram_pct";
+          display = "gauge";
+          show_label = false;
+          highlight_color = "error";
+        };
+
+        # label = connected SSID; speeds live in the hover tooltip
+        network = {
+          show_label = true;
+        };
+
+        microphone = {
+          type = "volume";
+          device = "input";
+          mute_color = "error";
+        };
+
+        battery = {
+          display_mode = "graphic";
+          show_label = true;
+          warning_color = "error";
+        };
+
+        notifications = {
+          hide_when_no_unread = false;
+        };
+
+        session = {
+          icon_color = "error";
+        };
+      };
+
+      # ╔══════════════════════════════════════════════════════════╗
+      # ║  ✦ DESKTOP WIDGETS — art on the wallpaper layer          ║
+      # ║       big clock ✚ weather card ✚ audio rings             ║
+      # ╚══════════════════════════════════════════════════════════╝
+      desktop_widgets = {
+        enabled = true;
+        widget_order = [
+          "clock_hero"
+          "weather_card"
+          "viz_floor"
+        ];
+
+        widget = {
+          clock_hero = {
+            type = "clock";
+            output = "eDP-1";
+            cx = 1660.0;
+            cy = 190.0;
+            box_width = 420.0;
+            box_height = 170.0;
+            rotation = 0.0;
+            settings = {
+              clock_style = "digital";
+              format = "{:%I:%M}";
+              background_opacity = 0.0;
+            };
+          };
+
+          weather_card = {
+            type = "weather";
+            output = "eDP-1";
+            cx = 1660.0;
+            cy = 400.0;
+            rotation = 0.0;
+            settings = {
+              show_forecast = true;
+              forecast_days = 3;
+            };
+          };
+
+          # wide linear bars along the bottom (fancy_* is radial-only)
+          viz_floor = {
+            type = "fancy_audio_visualizer";
+            output = "eDP-1";
+            cx = 1024.0;
+            cy = 1140.0;
+            box_width = 880.0;
+            box_height = 200.0;
+            rotation = 0.0;
+            settings = {
+              visualization_mode = "bars";
+              bar_width = 0.6;
+              sensitivity = 1.5;
+              fade_when_idle = true;
+              primary_color = "primary";
+              secondary_color = "tertiary";
+            };
+          };
+        };
       };
     };
   };

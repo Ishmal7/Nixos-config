@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
   let
     sharedModules = [
       ./hosts/vivobook/default.nix
@@ -39,11 +39,10 @@
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
 	  sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          {
+
+	  {
             home-manager.users.james = { 
               imports = [
-	        nixvim.homeModules.nixvim
                 ./users/james/home.nix
               ];
             };

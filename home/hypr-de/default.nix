@@ -1,14 +1,9 @@
 {pkgs, config, ...}:
 {
-  #services.displayManager.enable = true;
-
   wayland.windowManager.hyprland = {
-   # enable = true;
-
-    # 1. Inform Home Manager that you are using Lua syntax instead of Hyprlang (.con>
-    configType = "lua"; #
+    enable = true;
+    configType = "lua"; # 🌟 Explicitly targeting modern Hyprland Lua structures
+    extraConfig = builtins.readFile ./hyprland.lua;
+    systemd.variables = ["--all"];
   };
-  # 2. Tell Home Manager to read the local hyprland.lua file into the generation s>
-  xdg.configFile."hypr/hyprland.lua".source = ./hyprland.lua;
-    #extraConfig = builtins.readFile ./hyprland.lua; #
 }
