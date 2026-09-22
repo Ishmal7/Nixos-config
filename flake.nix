@@ -23,8 +23,7 @@
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
   let
     sharedModules = [
-      ./hosts/vivobook/default.nix
-      ./users/james/default.nix
+      sops-nix.nixosModules.sops
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -35,15 +34,15 @@
     ];
   in {
     nixosConfigurations = {
-      jkearns-nixos = nixpkgs.lib.nixosSystem {
+      vivobook = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
-	  sops-nix.nixosModules.sops
-
+	  ./hosts/vivobook/default.nix
+	  ./users/james/default.nix
 	  {
             home-manager.users.james = { 
-              imports = [
+	      imports = [
                 ./users/james/home.nix
               ];
             };

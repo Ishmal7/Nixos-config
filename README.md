@@ -16,7 +16,8 @@ First NixOS config
 │       ├── default.nix
 │       ├── fastfetch.nix
 │       ├── git.nix
-│       └── neovim.nix
+│       ├── neovim.nix
+│       └── ssh.nix
 ├── hosts
 │   └── vivobook
 │       ├── default.nix
@@ -39,6 +40,7 @@ First NixOS config
 │   │   ├── hypr-de
 │   │   │   ├── hyprland.nix
 │   │   │   └── noctalia.nix
+│   │   ├── plymouth.nix
 │   │   └── sddm.nix
 │   ├── hardware
 │   │   ├── audio.nix
@@ -46,10 +48,14 @@ First NixOS config
 │   │   ├── displaylink.nix
 │   │   └── nvidia.nix
 │   └── services
+│       ├── cups.nix
 │       ├── default.nix
-│       └── tailscale.nix
+│       ├── ssh.nix
+│       ├── tailscale.nix
+│       └── upower.nix
 ├── README.md
 ├── secrets
+│   ├── github.yaml
 │   └── Nas.yaml
 └── users
     └── james
