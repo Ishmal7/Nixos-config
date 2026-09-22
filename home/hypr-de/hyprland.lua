@@ -70,18 +70,15 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons
 
-hl.config({
-    ecosystem = {
-     enforce_permissions = true,
-   },
- })
+--hl.config({
+--    ecosystem = {
+--     enforce_permissions = true,
+--   },
+-- })
 
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-hl.permission({ binary = "/nix/store/[a-z0-9]{32}-noctalia-.*/bin/noctalia", type = "input-capture", mode = "allow" })
-hl.permission({ binary = "/nix/store/[a-z0-9]{32}-noctalia-.*/bin/noctalia", type = "cursorpos",    mode = "allow" })
-hl.permission({ binary = "/nix/store/[a-z0-9]{32}-noctalia-.*/bin/noctalia", type = "screencopy",   mode = "allow" })
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -257,7 +254,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local ipc = "noctalia msg "
 
 -- Core binds
-hl.bind(mainMod .. "+ Space", hl.dsp.exec_cmd(ipc .. "noctalia msg panel-toggle launcher"))
+hl.bind(mainMod .. "+ Space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 hl.bind(mainMod .. "+ S", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
 hl.bind(mainMod .. "+ comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"))

@@ -165,7 +165,7 @@
 
       # built-in low-battery warning fires at this percentage
       battery = {
-        warning_threshold = 40;
+        warning_threshold = 30;
       };
 
       # ╔══════════════════════════════════════════════════════════╗
@@ -220,12 +220,12 @@
 
       control_center = {
         shortcuts = [
-          "wifi"
-          "bluetooth"
-          "caffeine"
-          "power_profile"
-          "nightlight"
-          "wallpaper"
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "caffeine"; }
+          { type = "power_profile"; }
+          { type = "nightlight"; }
+          { type = "wallpaper"; }
         ];
       };
 
@@ -252,7 +252,16 @@
         show_dots = true;
         launcher_position = "start";
         launcher_icon = "grid-dots";
-	#pinned = ["alacritty" "yazi" "spotify" "obsidian" "mgba"];
+	pinned = [
+	  "Alacritty.desktop"
+	  "firefox.desktop"
+	  "code.desktop"
+	  "yazi.desktop"
+	  "spotify"
+	  "obsidian.desktop"
+	  "mgba"
+	  "steam.desktop"
+	];
       };
 
       # ╔══════════════════════════════════════════════════════════╗
@@ -263,7 +272,7 @@
       # ║  └──────────────────────────────────────────────────┘   ║
       # ╚══════════════════════════════════════════════════════════╝
       bar = {
-        main = {
+        default = {
           position = "top";
           thickness = 32;
           background_opacity = 0.6;

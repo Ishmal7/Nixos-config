@@ -18,12 +18,18 @@
           with pkgs.vimPlugins; [
 	    telescope-nvim
             nvim-treesitter-with-plugins
+	    nvim-web-devicons
+	    nvim-tree-lua
           ];
     
         viAlias = true;
         vimAlias = true;
 
         initLua = ''
+            -- Disable netrw so nvim-tree owns directory browsing (must come first)
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+
             -- Numbers and navigation
             vim.opt.number = true
             vim.opt.scrolloff = 8
@@ -43,6 +49,14 @@
 
             -- Mouse
             vim.opt.mouse = "a"
+
+            -- File tree
+            require("nvim-tree").setup({
+              view = { width = 30 },
+              renderer = { group_empty = true },
+              filters = { dotfiles = false },
+            })
+            vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
         '';
     };
 }

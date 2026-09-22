@@ -6,6 +6,7 @@ in {
     enable = true;
     theme = "marine_dark";
     settings = {
+      font.normal.family = "JetBrainsMono Nerd Font";
       window.opacity = 0.8;
       colors = {
         primary = {
