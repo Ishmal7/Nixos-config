@@ -64,7 +64,7 @@
         # rounded screen corners, faux-CRT style
         screen_corners = {
           enabled = false;
-          size = 24;
+          size = 12;
         };
 
         screenshot = {
@@ -254,7 +254,7 @@
         launcher_icon = "grid-dots";
 	pinned = [
 	  "Alacritty.desktop"
-	  "firefox.desktop"
+	  "firefox"
 	  "code.desktop"
 	  "yazi.desktop"
 	  "spotify"

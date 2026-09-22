@@ -1,14 +1,5 @@
 {config, pkgs, ...}:
 {
-  # enable upower
-  services.upower.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   imports = [
     ./hardware-configuration.nix
     ../../modules/core/default.nix

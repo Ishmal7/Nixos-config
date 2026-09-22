@@ -10,7 +10,7 @@
    mode = "0600";
   };
 
-  sops.secrets.github_ssh_key = {
+  sops.secrets.github_key = {
     sopsFile = ../../secrets/github.yaml; # remove this line if you added the key to Nas.yaml instead
     owner = "james";
     mode = "0400";

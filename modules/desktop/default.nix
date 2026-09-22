@@ -2,7 +2,7 @@
 {
   imports = [
     ./hypr-de/hyprland.nix
-    #./hypr-de/noctalia.nix
+    ./plymouth.nix
     ./sddm.nix
     #./cosmic.nix
   ];

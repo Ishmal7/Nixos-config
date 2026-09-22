@@ -35,7 +35,6 @@
     obsidian
     alacritty
     steam
-    neovim
     firefox
     libreoffice
     vscode
