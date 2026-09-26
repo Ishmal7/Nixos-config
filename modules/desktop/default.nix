@@ -1,9 +1,18 @@
-{inputs, ...}:
+{ config, lib, inputs, ...}:
+let
+  cfg = config.myOptions.desktop;
+in
 {
   imports = [
     ./hypr-de/hyprland.nix
-    ./plymouth.nix
+    ./cosmic.nix
     ./sddm.nix
-    #./cosmic.nix
+    ./plymouth.nix
   ];
+
+  options.myOptions.desktop = lib.mkOption {
+    type = lib.types.enum [ "hyprland" "cosmic" "none" ];
+    default = "hyprland";
+    description = "Desktop environment to install.";
+  };
 }

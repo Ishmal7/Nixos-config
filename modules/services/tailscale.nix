@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, lib, ...}:
 
 {
   # The Code Block sets up for tailscale

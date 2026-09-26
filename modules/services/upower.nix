@@ -2,4 +2,5 @@
 
 {
   services.upower.enable = true;
-};
+}
+

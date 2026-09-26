@@ -1,9 +1,9 @@
 {inputs, ...}:
 {
   imports = [
-    tailscale.nix
-    cups.nix
-    ssh.nix
-    upower.nix
+    ./tailscale.nix
+    ./cups.nix
+    ./ssh.nix
+    ./upower.nix
   ];
 }

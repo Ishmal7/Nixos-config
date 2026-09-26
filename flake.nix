@@ -22,6 +22,13 @@
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
   let
+    # Create inheritable system
+    system = "x86_64-linux";
+
+    # Extend the lib nixpkgs with custom helpers in ./lib/default
+    lib = nixpkgs.lib // (import ./lib { lib = nixpkgs.lib; });
+    
+    # shares sops and home-manager
     sharedModules = [
       sops-nix.nixosModules.sops
       home-manager.nixosModules.home-manager
@@ -35,8 +42,8 @@
   in {
     nixosConfigurations = {
       vivobook = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        inherit system;
+        specialArgs = { inherit inputs lib; };
         modules = sharedModules ++ [
 	  ./hosts/vivobook/default.nix
 	  ./users/james/default.nix
@@ -48,7 +55,22 @@
             };
           }
         ];
-      };    
+      };
+      nuc = nixpkgs.lib.nixosSystem {
+        inherit system;
+	specialArgs = { inherit inputs lib; };
+        modules = sharedModules ++ [
+	  ./hosts/nuc/default.nix
+	  ./users/james/default.nix
+	  {
+            home-manager.users.james = { 
+	      imports = [
+                ./users/james/home.nix
+              ];
+	    };
+	  }
+	];
+      };        
     };
   };
 }

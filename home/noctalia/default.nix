@@ -18,7 +18,6 @@
       # ╚══════════════════════════════════════════════════════════╝
       shell = {
         font_family = "JetBrainsMono Nerd Font";
-        ui_scale = 1.0;
         corner_radius_scale = 1.2;
         avatar_path = "~/.face";
         telemetry_enabled = false;
@@ -58,7 +57,6 @@
           categories = true;
           show_icons = true;
           sort_by_usage = true;
-          session_search = true;
         };
 
         # rounded screen corners, faux-CRT style
@@ -253,14 +251,13 @@
         launcher_position = "start";
         launcher_icon = "grid-dots";
 	pinned = [
-	  "Alacritty.desktop"
+	  "Alacritty"
 	  "firefox"
-	  "code.desktop"
-	  "yazi.desktop"
+	  "code"
+	  "yazi"
 	  "spotify"
-	  "obsidian.desktop"
-	  "mgba"
-	  "steam.desktop"
+	  "obsidian"
+	  "steam"
 	];
       };
 
@@ -296,7 +293,10 @@
             "gap"
             "active_window"
           ];
-          center = [ "workspaces" ];
+          center = [ 
+	    "workspaces"
+	    "battery"
+	  ];
           end = [
             "media"
             "media_viz"
@@ -305,18 +305,14 @@
             "ram"
             "gap"
             "network"
-            "bluetooth"
             "volume"
-            "microphone"
             "brightness"
-            "gap"
             "gap"
             "tray"
             # "screenshot"
             "clipboard"
             "notifications"
             "gap"
-            "battery"
             "caffeine"
             "session"
           ];
@@ -380,13 +376,14 @@
         };
 
         workspaces = {
-          display = "name";
+          label_source = "name";
+	  show_labels = true;
           max_label_chars = 10;
           labels_only_when_occupied = true;
           focused_color = "primary";
           occupied_color = "tertiary";
           empty_color = "outline";
-          pill_scale = 1.2;
+          pill_scale = 1;
           active_pill_size = 2.4;
           hide_when_empty = true;
         };
@@ -399,16 +396,16 @@
         cpu = {
           type = "sysmon";
           stat = "cpu_usage";
-          display = "gauge";
-          show_label = false;
+          vizualization = "gauge";
+          show_value = false;
           highlight_color = "error";
         };
 
         ram = {
           type = "sysmon";
           stat = "ram_pct";
-          display = "gauge";
-          show_label = false;
+          vizualization = "gauge";
+          show_value = false;
           highlight_color = "error";
         };
 

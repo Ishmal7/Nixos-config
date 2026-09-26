@@ -56,7 +56,7 @@
               renderer = { group_empty = true },
               filters = { dotfiles = false },
             })
-            vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
+            vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { silent = true, noremap = true })
         '';
     };
 }

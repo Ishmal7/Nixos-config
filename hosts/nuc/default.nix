@@ -8,19 +8,11 @@
     ../../modules/desktop/default.nix
   ];
 
-  fileSystems."/mnt/DATA" = {
-    device = "/dev/disk/by-uuid/3CFA8066FA801DF0";
-    fsType = "ntfs";
-    options = [ "defaults" "nofail" ]; 
-  };
-
-  networking.hostName = "vivobook";
-  system.stateVersion = "26.11";  
+  networking.hostName = "nuc";
+  system.stateVersion = "26.11";
 
   # Toggle settings
-  myOptions.desktop = "hyprland";
+  myOptions.desktop = "cosmic";
   myOptions.packages.apps = true;
 
 }
-
-
