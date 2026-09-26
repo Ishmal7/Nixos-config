@@ -1,6 +1,9 @@
 {config, pkgs, ...}: {
   programs.git = {
     enable = true;
+    signing = {
+      signByDefault = true;
+    };
 
     settings = {
       init.defaultBranch = "main";

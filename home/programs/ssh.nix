@@ -1,6 +1,7 @@
 { osConfig, ... }: {
   programs.ssh = {
     enable = true;
+
     settings."*" = {
       AddKeysToAgent = "no";
       Compression = false;
@@ -9,7 +10,7 @@
       ControlPersist = "no";
       ForwardAgent = false;
       HashKnownHosts = false;
-      ServerAliveCountMax =  3;
+      ServerAliveCountMax = 3;
       ServerAliveInterval = 0;
       UserKnownHostsFile = "~/.ssh/known_hosts";
     };
