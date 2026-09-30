@@ -19,10 +19,14 @@ First NixOS config
 │       ├── neovim.nix
 │       └── ssh.nix
 ├── hosts
+│   ├── nuc
+│   │   ├── default.nix
+│   │   └── hardware-configuration.nix
 │   └── vivobook
 │       ├── default.nix
 │       └── hardware-configuration.nix
 ├── lib
+│   └── default.nix
 ├── modules
 │   ├── core
 │   │   ├── boot.nix
@@ -38,8 +42,7 @@ First NixOS config
 │   │   ├── cosmic.nix
 │   │   ├── default.nix
 │   │   ├── hypr-de
-│   │   │   ├── hyprland.nix
-│   │   │   └── noctalia.nix
+│   │   │   └── hyprland.nix
 │   │   ├── plymouth.nix
 │   │   └── sddm.nix
 │   ├── hardware

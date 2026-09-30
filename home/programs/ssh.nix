@@ -1,9 +1,9 @@
-{ osConfig, ... }: {
+{ pkgs, ... }: {
   programs.ssh = {
     enable = true;
 
     settings."*" = {
-      AddKeysToAgent = "no";
+      AddKeysToAgent = "yes";
       Compression = false;
       ControlMaster = "no";
       ControlPath = "~/.ssh/master-%r@%n:%p";
@@ -13,11 +13,6 @@
       ServerAliveCountMax = 3;
       ServerAliveInterval = 0;
       UserKnownHostsFile = "~/.ssh/known_hosts";
-    };
-
-    settings."github.com" = {
-      identityFile = osConfig.sops.secrets.github_key.path;
-      identitiesOnly = true;
     };
   };
 }
