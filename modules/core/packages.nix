@@ -36,6 +36,7 @@ in
       pkgs.quickshell
       pkgs.steam
       pkgs.tela-icon-theme
+      pkgs.thunar
       pkgs.vlc
       pkgs.vscode
       pkgs.yazi
