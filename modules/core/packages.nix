@@ -19,6 +19,7 @@ in
       pkgs.fastfetch
       pkgs.git
       pkgs.pciutils
+      pkgs.p7zip
       pkgs.sops
       pkgs.tldr
       pkgs.tmux

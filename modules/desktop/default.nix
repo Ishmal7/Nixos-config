@@ -1,7 +1,5 @@
 { config, lib, inputs, ...}:
-let
-  cfg = config.myOptions.desktop;
-in
+
 {
   imports = [
     ./hypr-de/hyprland.nix
