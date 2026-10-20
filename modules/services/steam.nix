@@ -5,7 +5,7 @@
     enable = lib.mkEnableOption "gaming";
   };
 
-  config = lib.mkIF config.gaming {
+  config = lib.mkIf config.gaming.enable {
 
     programs.steam = 
       enable = true;

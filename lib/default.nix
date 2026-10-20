@@ -16,5 +16,10 @@
   
     # Optional Addition: An alternative to mkEnableOption that allows custom descriptions
     mkBoolOpt' = default: description: lib.mkOption { inherit default description; type = types.bool; };
+
+  mkIf = condition: content: {
+    _type = "if";
+    inherit condition content;
+  };
 }
 
