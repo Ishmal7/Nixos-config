@@ -4,7 +4,13 @@
   home.username = "james";
   home.homeDirectory = "/home/james";
   home.stateVersion = "26.11";
-  home.packages = with pkgs; [ discord spotify ];
+  home.packages = with pkgs; [
+    deluge
+    discord
+    mgba
+    obs-studio
+    spotify 
+  ];
 
   imports = [
     inputs.noctalia.homeModules.default

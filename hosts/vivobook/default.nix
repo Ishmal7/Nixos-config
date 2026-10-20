@@ -21,7 +21,7 @@
   # Toggle settings
   myOptions.desktop = "hyprland";
   myOptions.packages.apps = true;
-
+  myOptions.gaming = true;
 }
 
 

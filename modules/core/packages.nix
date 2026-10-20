@@ -35,7 +35,6 @@ in
       pkgs.libreoffice
       pkgs.obsidian
       pkgs.quickshell
-      pkgs.steam
       pkgs.tela-icon-theme
       pkgs.thunar
       pkgs.vlc
