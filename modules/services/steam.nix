@@ -1,24 +1,30 @@
-{pkgs, config, ...}:
+{pkgs, config, lib, ...}:
 
+let
+  cfg = config.myOptions.gaming;
+in
 {
-  option.gaming= {
+  options.myOptions.gaming= {
     enable = lib.mkEnableOption "gaming";
   };
 
-  config = lib.mkIf config.gaming.enable {
+  config = lib.mkIf cfg.enable {
 
-    programs.steam = 
+    programs.steam = { 
       enable = true;
       remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = false;
-  
+
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
+
     programs.gamemode.enable = true;
 
-    programs.steam.extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-
-    hardware.graphics.enable = true;
-    hardware.graphics.enable32Bit = true;
-  }
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+  };
 }
