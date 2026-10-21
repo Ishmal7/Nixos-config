@@ -1,9 +1,14 @@
-{config, pkgs, ...}: {
+{config, pkgs, osConfig, ...}:
+
+{
   programs.git = {
     enable = true;
     signing = {
       signByDefault = true;
+      format = "ssh";
+      key = osConfig.sops.secrets.github.path;
     };
+
 
     settings = {
       init.defaultBranch = "main";

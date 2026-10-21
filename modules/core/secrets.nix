@@ -1,19 +1,24 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: 
 
+{
   # Ensure sops knows where your master encrypted file is
-  sops.defaultSopsFile = ../../secrets/Nas.yaml;
-  sops.defaultSopsFormat = "yaml";
-
-  # Declare the secret string to be parsed into a local physical file
-  sops.secrets.truenas_smb = {
-    # Optional: If your SMB share requires access by a specific user/group, set it here.
-   mode = "0600";
+  sops = {
+    defaultSopsFile = ../../secrets/Nas.yaml;
+    defaultSopsFormat = "yaml";
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   };
 
-  sops.secrets.github_key = {
-    sopsFile = ../../secrets/github.yaml; # remove this line if you added the key to Nas.yaml instead
+  # Truenas SMB SHare 
+  sops.secrets.truenas_smb = {
+    mode = "0600";
+  };
+
+  # Sops Github Secret
+  sops.secrets.github = {
+    sopsFile = ../../secrets/github.yaml;
+    key = "github_key";
     owner = "james";
-    mode = "0400";
+    mode = "400";
   };
 }
 
