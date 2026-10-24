@@ -22,55 +22,23 @@
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
   let
-    # Create inheritable system
-    system = "x86_64-linux";
-
     # Extend the lib nixpkgs with custom helpers in ./lib/default
     lib = nixpkgs.lib // (import ./lib { lib = nixpkgs.lib; });
-    
-    # shares sops and home-manager
-    sharedModules = [
-      sops-nix.nixosModules.sops
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "backup";
-	home-manager.extraSpecialArgs = { inherit inputs; };
-      }    
-    ];
+
+    # mkHost with inputs and libs already included
+    mkHost = import ./lib/mkHost.nix { inherit inputs lib; root = ./.; };
+
+    hosts = lib.filterAttrs
+      (name: type: type == "directory" && builtins.pathExists ./hosts/${name}/default.nix)
+      (builtins.readDir ./hosts);
+
+    # defaults for every host; an optional hosts/<name>/meta.nix can override them
+    hostArgs = name:
+      let metaFile = ./hosts/${name}/meta.nix;
+      in { users = [ "james" ]; }
+         // lib.optionalAttrs (builtins.pathExists metaFile) (import metaFile);
   in {
-    nixosConfigurations = {
-      vivobook = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs lib; };
-        modules = sharedModules ++ [
-	  ./hosts/vivobook/default.nix
-	  ./users/james/default.nix
-	  {
-            home-manager.users.james = { 
-	      imports = [
-                ./users/james/home.nix
-              ];
-            };
-          }
-        ];
-      };
-      nuc = nixpkgs.lib.nixosSystem {
-        inherit system;
-	specialArgs = { inherit inputs lib; };
-        modules = sharedModules ++ [
-	  ./hosts/nuc/default.nix
-	  ./users/james/default.nix
-	  {
-            home-manager.users.james = { 
-	      imports = [
-                ./users/james/home.nix
-              ];
-	    };
-	  }
-	];
-      };        
-    };
+    nixosConfigurations = lib.mapAttrs (name: _: mkHost name (hostArgs name)) hosts;
   };
 }
+
