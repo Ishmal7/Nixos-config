@@ -7,5 +7,6 @@
     ./git.nix
     ./neovim.nix
     ./ssh.nix
+    ./opencode.nix
   ];
 }

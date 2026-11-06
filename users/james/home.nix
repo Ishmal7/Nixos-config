@@ -9,7 +9,8 @@
     discord
     mgba
     obs-studio
-    spotify 
+    spotify
+    opencode-desktop
   ];
 
   imports = [

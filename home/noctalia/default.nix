@@ -256,7 +256,7 @@
 	  "code"
 	  "yazi"
 	  "spotify"
-	  "obsidian"
+	  "Obsidian"
 	  "steam"
 	];
       };
@@ -382,7 +382,7 @@
           labels_only_when_occupied = true;
           focused_color = "primary";
           occupied_color = "tertiary";
-          empty_color = "outline";
+          empty_color = "outline_variant";
           pill_scale = 1;
           active_pill_size = 2.4;
           hide_when_empty = true;
@@ -396,7 +396,7 @@
         cpu = {
           type = "sysmon";
           stat = "cpu_usage";
-          vizualization = "gauge";
+          visualization = "graph";
           show_value = false;
           highlight_color = "error";
         };
@@ -404,7 +404,7 @@
         ram = {
           type = "sysmon";
           stat = "ram_pct";
-          vizualization = "gauge";
+          visualization = "graph";
           show_value = false;
           highlight_color = "error";
         };
