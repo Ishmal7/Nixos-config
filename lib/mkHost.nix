@@ -1,4 +1,4 @@
-# hosts/mkHost.nix
+# lib/mkHost.nix
 { inputs, lib, root }:
 
 name: { system ? "x86_64-linux", users }:

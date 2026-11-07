@@ -1,12 +1,13 @@
-{pkgs, configs, ...}:
-{
-  #networking.hostName = "jkearns-nixos";
-  networking.wireless.enable = true; #Enables wireless support via wpa_supplicant
-  
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user.password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1, localhost, internal.domain";
+{ ... }:
 
+{
   # Enable networking
-  networking.networkmanager.enable = true;
+  # Wi-Fi is managed by NetworkManager
+
+  networking = {
+    networkmanager.enable = true;
+    # Firewall baseline lives here, independent of Tailscale.
+    nftables.enable = true;
+    firewall.enable = true;
+  };
 }

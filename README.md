@@ -17,6 +17,7 @@ First NixOS config
 │       ├── fastfetch.nix
 │       ├── git.nix
 │       ├── neovim.nix
+│       ├── opencode.nix
 │       └── ssh.nix
 ├── hosts
 │   ├── nuc
@@ -26,7 +27,8 @@ First NixOS config
 │       ├── default.nix
 │       └── hardware-configuration.nix
 ├── lib
-│   └── default.nix
+│   ├── default.nix
+│   └── mkHost.nix
 ├── modules
 │   ├── core
 │   │   ├── boot.nix
@@ -54,6 +56,7 @@ First NixOS config
 │       ├── cups.nix
 │       ├── default.nix
 │       ├── ssh.nix
+│       ├── steam.nix
 │       ├── tailscale.nix
 │       └── upower.nix
 ├── README.md
@@ -64,4 +67,5 @@ First NixOS config
     └── james
         ├── default.nix
         └── home.nix
+
 ```
