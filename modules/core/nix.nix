@@ -1,4 +1,5 @@
-{pkgs, config, ...}:
+{ ... }:
+
 {
   nix.settings = {
     experimental-features = [

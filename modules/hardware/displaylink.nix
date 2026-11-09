@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   # Use the built-in NixOS module (handles evdi, systemd, and drivers)

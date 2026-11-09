@@ -10,4 +10,8 @@
     nftables.enable = true;
     firewall.enable = true;
   };
+
+  # Do not block boot on network-online.
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 }
