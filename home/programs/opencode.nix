@@ -24,22 +24,22 @@
             baseURL = "http://192.168.0.156:11434/v1";
           };
           models = {
-            "hf.co/unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q4_K_M" = {
-              name = "hf.co/unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q4_K_M";
+            "gemma-4-26B-A4B-it-64k" = {
+              name = "gemma-4-26B-A4B-it";
 	      limit = {
 	        context = 65536;
 		#output = 8192;
 	      };
             };
-            "qwen3.5:9b" = {
-              name = "qwen3.5:9b";
+            "qwen3.5:9b-64k" = {
+              name = "qwen3.5:9b-64k";
 	      limit = {
 	        context = 131072;
 		output = 8192;
 	      };
             };
-	    "qwen3.8:27b" = {
-	      name = "qwen3.8:27b";
+	    "qwen3.8:27b-64k" = {
+	      name = "qwen3.8:27b-64k";
 	      limit = {
 	        context = 32678;
 		output = 8192;

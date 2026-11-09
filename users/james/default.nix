@@ -5,7 +5,7 @@
     isNormalUser = true;
     uid = 1000;
     description = "James";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "truenas-personal" "truenas-media" ];
   };
 }
 
