@@ -9,11 +9,11 @@
     ../../modules/desktop/default.nix
   ];
 
-  networking.hostName = "nuc";
   system.stateVersion = "26.11";
 
   # Toggle settings
-  myOptions.desktop = "cosmic";
-  myOptions.packages.apps = true;
-
+  myOptions = {
+    desktop = "cosmic";
+    packages.apps = true;
+  };
 }

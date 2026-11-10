@@ -10,7 +10,7 @@
     settings."github.com" = {
       HostName = "github.com";
       User = "git";
-      IdentityFile = osConfig.sops.secrets.github_auth.path;
+      IdentityFile = osConfig.sops.secrets.github.path;
       IdentitiesOnly = "yes";
     };
 

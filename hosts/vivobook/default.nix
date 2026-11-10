@@ -15,13 +15,15 @@
     options = [ "defaults" "nofail" ]; 
   };
 
-  networking.hostName = "vivobook";
   system.stateVersion = "26.11";  
 
   # Toggle settings
-  myOptions.desktop = "hyprland";
-  myOptions.packages.apps = true;
-  myOptions.gaming.enable = true;
+  myOptions = {
+    desktop = "hyprland";
+    packages.apps = true;
+    gaming.enable = true;
+    hardware.nvidia = { enable=true; driver="legacy_580"; open=false;};
+  };
 }
 
 
