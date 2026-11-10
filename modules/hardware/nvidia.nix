@@ -10,7 +10,7 @@ in
 
     driver = lib.mkOption{
     type = lib.types.enum["stable" "latest" "legacy_580"];
-    default = "stable"
+    default = "stable";
     description = "Driver branch, matching a name under boot.kernelPackages.nvidiaPackages.";
     };
 

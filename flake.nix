@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
   let
     # Extend the lib nixpkgs with custom helpers in ./lib/default
     lib = nixpkgs.lib // (import ./lib { lib = nixpkgs.lib; });

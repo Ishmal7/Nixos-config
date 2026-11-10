@@ -15,5 +15,6 @@
   myOptions = {
     desktop = "cosmic";
     packages.apps = true;
+    hardware.nvidia = false;
   };
 }
