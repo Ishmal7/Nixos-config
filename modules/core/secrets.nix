@@ -14,7 +14,7 @@
   };
 
   # Sops Github Secret
-  sops.secrets.github_auth = {
+  sops.secrets.github = {
     sopsFile = ../../secrets/github.yaml;
     key = "github_key";
     owner = "james";
