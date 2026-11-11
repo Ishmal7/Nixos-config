@@ -30,7 +30,6 @@ in
     ]  
     ++ lib.optionals (cfg.apps) [
       pkgs.alacritty
-      pkgs.displaylink
       pkgs.firefox
       pkgs.libreoffice
       pkgs.obsidian

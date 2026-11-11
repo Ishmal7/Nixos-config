@@ -23,6 +23,7 @@
     packages.apps = true;
     gaming.enable = true;
     hardware.nvidia = { enable=true; driver="legacy_580"; open=false;};
+    hardware.displaylink.enable = true;
   };
 }
 

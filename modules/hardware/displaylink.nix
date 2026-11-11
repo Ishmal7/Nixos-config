@@ -1,10 +1,20 @@
-{ ... }:
+{ config, lib, pkgs, ... }:
+
+let
+  cfg = config.myOptions.hardware.displaylink;
+in
 
 {
-  # Use the built-in NixOS module (handles evdi, systemd, and drivers)
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  options.myOptions.hardware.displaylink = {
+    enable = lib.mkEnableOption "displaylink";
+  };
+  
+  config = lib.mkIf cfg.enable {
+    
+    environment.systemPackages = [ pkgs.displaylink ];
 
-  # Ensure Wayland compatibility for KDE Plasma
-  services.displayManager.sddm.wayland.enable = true;
+    # Use the built-in NixOS module (handles evdi, systemd, and drivers)
+    services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  };
 }
 

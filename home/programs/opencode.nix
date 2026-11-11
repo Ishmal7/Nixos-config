@@ -2,7 +2,7 @@
 
 {
   programs.opencode = {
-    enable = true;
+    # enable = true;
 
     # OpenCode V2 (2.1.4; git-backed plugins such as Superpowers require >= 2.0.4).
     # Installed through the desktop package on this machine.
